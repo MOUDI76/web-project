@@ -1,6 +1,6 @@
 function welcomeVisitor() { let name = document.querySelector("#visitorName").value.trim();
 let welcome = document.querySelector("#welcome");
-welcome.innerHTML = " يا هلا والله بالرهيب <span>" + name + "(:" + "<span class='glow-emoji'>⭐️</span>";
+welcome.innerHTML = " يا هلا والله بالرهيب <span>" + name + "(:" ;
 welcome.style.fontFamily = /[\u0600-\u06FF]/.test(name)
 
         ? "'Tajawal', sans-serif"
