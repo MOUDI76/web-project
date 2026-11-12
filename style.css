@@ -58,11 +58,6 @@ button {
   
 }
 
-
-.glow-emoji {
-    animation: glowing 2s infinite;
-    display: inline-block;
-}
 .welcome-banner {
 
     background-image: url("images/66.jpg");
