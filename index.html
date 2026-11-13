@@ -32,7 +32,7 @@
 
         <h1 id="welcome">يا هلا بك في مساحتي الاولى في عالم الويب ✨</h1>
 
-        <p> خلّنا نرحب فيك </p>
+        <p>يسعدني وجودك هنا, خلّنا نرحب فيك </p>
 
         <input
 
@@ -69,29 +69,174 @@
 
 <section class="web-section">
 
-    <h2>كيف يعمل الويب؟</h2>
+  <h2>كيف يعمل الويب؟</h2>
 
-    <p>رحلة بسيطة توضّح كيف تنتقل طلباتك عبر الويب حتى تظهر لك الصفحة.</p>
+  <p>رحلة بسيطة توضّح كيف تنتقل طلباتك عبر الويب حتى تظهر لك الصفحة.</p>
 
-    <div class="web-diagram"> 
-<img src="images/web2.jpg" alt="مخطط يوضح مراحل عمل الويب" class="diagram-image">
+  <div class="web-diagram">
+  <svg class="web-art" viewBox="0 0 850 480" xmlns="http://www.w3.org/2000/svg"
+       font-family="Poppins, Tajawal, sans-serif"
+       role="img" aria-label="مخطط يوضح رحلة عمل الويب">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#38245f"/><stop offset="55%" stop-color="#66509b"/><stop offset="100%" stop-color="#30204f"/>
+      </linearGradient>
+      <linearGradient id="device" x1="0" y1="0" x2="0.8" y2="1">
+        <stop offset="0%" stop-color="#fffaff"/><stop offset="100%" stop-color="#c9b4ed"/>
+      </linearGradient>
+      <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#f9eaff"/><stop offset="100%" stop-color="#b99ae8"/>
+      </linearGradient>
+      <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#ffd4f0"/><stop offset="100%" stop-color="#c16acb"/>
+      </linearGradient>
+      <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#e6d6ff"/><stop offset="100%" stop-color="#8d66c9"/>
+      </linearGradient>
+      <radialGradient id="globe">
+        <stop offset="0%" stop-color="#f8dfff"/><stop offset="65%" stop-color="#bd91ee"/><stop offset="100%" stop-color="#68469d"/>
+      </radialGradient>
+      <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="shadow"><feGaussianBlur stdDeviation="7"/></filter>
+      <pattern id="grid" width="35" height="35" patternUnits="userSpaceOnUse">
+        <path d="M35 0H0V35" fill="none" stroke="#e7d8ff" stroke-opacity=".09"/>
+      </pattern>
+      <!— رأس سهم مثلث ثابت الحجم —>
+      <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="16" markerHeight="16"
+              markerUnits="userSpaceOnUse" orient="auto">
+        <path d="M1 1 L11 6 L1 11 L4 6Z" fill="#f8dfff"/>
+      </marker>
+    </defs>
 
-<button class="stage hotspot active" data-stage="0" type="button">1</button>
-<button class="stage hotspot" data-stage="1" type="button">2</button>
-<button class="stage hotspot" data-stage="2" type="button">3</button>
-<button class="stage hotspot" data-stage="3" type="button">4</button>
-<button class="stage hotspot" data-stage="4" type="button">5</button>
+    <rect width="850" height="480" rx="22" fill="url(#bg)"/>
+    <rect width="850" height="480" rx="22" fill="url(#grid)"/>
 
- </div>
+    <g fill="#fff2ff">
+      <circle cx="75" cy="70" r="2"/><circle cx="240" cy="55" r="2.5"/><circle cx="430" cy="45" r="2"/>
+      <circle cx="710" cy="75" r="2"/><circle cx="790" cy="185" r="2"/><circle cx="100" cy="440" r="2"/>
+      <circle cx="430" cy="460" r="2"/><circle cx="800" cy="420" r="2.5"/>
+      <path d="M350 40v12m-6-6h12M620 270v12m-6-6h12" stroke="#fff2ff" stroke-width="1.5"/>
+    </g>
 
-<div class="stage-info">
+    <!— الأسهم: كل سهم يبدأ من مرحلة ويصل للتي بعدها —>
+    <g fill="none" stroke="#e9cfff" stroke-width="3" stroke-linecap="round" opacity=".85">
+      <path class="route-line" data-route="0" marker-end="url(#ah)" d="M205 125 C250 70 300 70 338 118"/>
+      <path class="route-line" data-route="1" marker-end="url(#ah)" d="M510 118 C550 70 610 70 643 118"/>
+      <path class="route-line" data-route="2" marker-end="url(#ah)" d="M765 150 C835 200 830 285 745 306"/>
+      <path class="route-line" data-route="3" marker-end="url(#ah)" d="M645 352 C560 440 300 440 216 345"/>
+      <path class="route-line" data-route="4" marker-end="url(#ah)" d="M135 284 V242"/>
+    </g>
+
+    <!— الكوكب —>
+    <g class="globe">
+      <ellipse cx="425" cy="247" rx="110" ry="92" fill="#d9a8ff" opacity=".13" filter="url(#shadow)"/>
+      <ellipse cx="425" cy="250" rx="90" ry="31" fill="none" stroke="#f6c9ed" stroke-width="7"
+               opacity=".85" transform="rotate(-20 425 250)"/>
+      <circle cx="425" cy="247" r="57" fill="url(#globe)" stroke="#f4dfff" stroke-width="3"/>
+      <path d="M380 230Q405 207 430 224Q452 211 470 237Q450 253 437 247Q419 272 397 259Z" fill="#e9caff" opacity=".65"/>
+      <path d="M393 278Q414 254 437 270Q451 279 461 267" fill="none" stroke="#a77bd1" stroke-width="5" stroke-linecap="round"/>
+      <text x="425" y="252" text-anchor="middle" fill="#fff" font-size="21" font-weight="bold">WWW</text>
+    </g>
+
+    <!— 0: المستخدم —>
+    <g class="art-stage" data-art-stage="0" tabindex="0" role="button" aria-label="المستخدم">
+      <ellipse cx="130" cy="207" rx="88" ry="15" fill="#180f32" opacity=".4" filter="url(#shadow)"/>
+      <path d="M66 105Q66 96 76 96H183Q193 96 193 106V178H66Z" fill="#9c7bc8"/>
+      <rect x="72" y="101" width="115" height="70" rx="5" fill="url(#device)"/>
+      <rect x="79" y="108" width="101" height="56" rx="3" fill="url(#screen)"/>
+      <circle cx="129" cy="104" r="1.5" fill="#fff"/>
+      <rect class="tick" x="91" y="120" width="75" height="6" rx="3" fill="#9b75ca"/>
+      <rect class="tick" style="animation-delay:.25s" x="91" y="133" width="50" height="4" rx="2" fill="#fff"/>
+      <rect class="tick" style="animation-delay:.5s" x="91" y="142" width="65" height="4" rx="2" fill="#fff"/>
+      <path d="M58 178H201L187 192H72Z" fill="url(#device)"/>
+      <path d="M108 181H151L146 185H113Z" fill="#9d7cc5"/>
+      <path d="M58 178H201" stroke="#fff" stroke-width="2"/>
+      <text x="130" y="225" text-anchor="middle" fill="#f8eaff" font-size="14" font-weight="bold">USER</text>
+    </g>
+
+    <!— 1: المتصفح —>
+    <g class="art-stage" data-art-stage="1" tabindex="0" role="button" aria-label="المتصفح">
+      <ellipse cx="425" cy="192" rx="85" ry="12" fill="#180f32" opacity=".35" filter="url(#shadow)"/>
+      <rect x="347" y="85" width="157" height="105" rx="12" fill="#a98bd2"/>
+      <rect x="354" y="91" width="143" height="91" rx="8" fill="url(#device)"/>
+      <path d="M354 99Q354 91 362 91H489Q497 91 497 99V112H354Z" fill="#8b68bb"/>
+      <circle class="blink" cx="366" cy="102" r="3" fill="#ffc8e8"/>
+      <circle class="blink" style="animation-delay:.3s" cx="377" cy="102" r="3" fill="#fff"/>
+      <circle class="blink" style="animation-delay:.6s" cx="388" cy="102" r="3" fill="#d9c5ff"/>
+      <rect class="tick" x="369" y="121" width="113" height="8" rx="4" fill="#c9b3e9"/>
+      <rect class="pulse" x="369" y="138" width="46" height="30" rx="4" fill="#c19ce7"/>
+      <rect class="tick" style="animation-delay:.2s" x="422" y="138" width="60" height="5" rx="2" fill="#a987d1"/>
+      <rect class="tick" style="animation-delay:.4s" x="422" y="149" width="49" height="4" rx="2" fill="#d2bce9"/>
+      <rect class="tick" style="animation-delay:.6s" x="422" y="158" width="54" height="4" rx="2" fill="#d2bce9"/>
+      <text x="425" y="211" text-anchor="middle" fill="#f8eaff" font-size="14" font-weight="bold">BROWSER</text>
+    </g>
+
+    <!— 2: الخادم —>
+    <g class="art-stage" data-art-stage="2" tabindex="0" role="button" aria-label="الخادم">
+      <ellipse cx="704" cy="210" rx="70" ry="13" fill="#180f32" opacity=".4" filter="url(#shadow)"/>
+      <rect x="651" y="91" width="105" height="105" rx="9" fill="#9474c2"/>
+      <rect x="658" y="97" width="91" height="94" rx="6" fill="url(#device)"/>
+      <g fill="#8c68b8">
+        <rect x="670" y="108" width="66" height="19" rx="4"/>
+        <rect x="670" y="133" width="66" height="19" rx="4"/>
+        <rect x="670" y="158" width="66" height="19" rx="4"/>
+      </g>
+      <g fill="#f6d7ff">
+        <circle class="blink" cx="680" cy="117" r="3"/>
+        <circle class="blink" style="animation-delay:.3s" cx="680" cy="142" r="3"/>
+        <circle class="blink" style="animation-delay:.6s" cx="680" cy="167" r="3"/>
+      </g>
+      <g fill="#e6b5e9">
+        <rect class="tick" x="690" y="115" width="34" height="4" rx="2"/>
+        <rect class="tick" style="animation-delay:.3s" x="690" y="140" width="34" height="4" rx="2"/>
+        <rect class="tick" style="animation-delay:.6s" x="690" y="165" width="34" height="4" rx="2"/>
+      </g>
+      <text x="704" y="230" text-anchor="middle" fill="#f8eaff" font-size="14" font-weight="bold">SERVER</text>
+    </g>
+
+    <!— 3: قاعدة البيانات —>
+    <g class="art-stage" data-art-stage="3" tabindex="0" role="button" aria-label="قاعدة البيانات">
+      <ellipse cx="700" cy="382" rx="67" ry="12" fill="#180f32" opacity=".
+      4" filter="url(#shadow)"/>
+      <path d="M650 315V368C650 390 752 390 752 368V315Z" fill="url(#purple)"/>
+      <ellipse class="pulse" cx="701" cy="315" rx="51" ry="15" fill="#f1dfff" stroke="#a886d0" stroke-width="3"/>
+      <path class="blink" d="M650 335C650 355 752 355 752 335" fill="none" stroke="#9c79c8" stroke-width="3"/>
+      <path class="blink" style="animation-delay:.4s" d="M650 353C650 373 752 373 752 353" fill="none" stroke="#9c79c8" stroke-width="3"/>
+      <ellipse cx="701" cy="315" rx="42" ry="9" fill="#d5b9f3"/>
+      <text x="701" y="410" text-anchor="middle" fill="#f8eaff" font-size="14" font-weight="bold">DATABASE</text>
+    </g>
+
+    <!— 4: الموقع (عودة النتيجة) —>
+    <g class="art-stage" data-art-stage="4" tabindex="0" role="button" aria-label="الموقع">
+      <ellipse cx="135" cy="382" rx="85" ry="13" fill="#180f32" opacity=".4" filter="url(#shadow)"/>
+      <rect x="64" y="290" width="142" height="88" rx="10" fill="#a58acb"/>
+      <rect x="71" y="297" width="128" height="72" rx="6" fill="url(#device)"/>
+      <path d="M71 305Q71 297 79 297H191Q199 297 199 305V315H71Z" fill="#8a67b9"/>
+      <circle class="blink" cx="82" cy="306" r="2.5" fill="#ffd4ed"/>
+      <circle class="blink" style="animation-delay:.3s" cx="91" cy="306" r="2.5" fill="#fff"/>
+      <rect class="pulse" x="82" y="325" width="48" height="35" rx="4" fill="url(#pink)"/>
+      <rect class="tick" x="138" y="326" width="49" height="5" rx="2" fill="#9874c5"/>
+      <rect class="tick" style="animation-delay:.3s" x="138" y="337" width="43" height="4" rx="2" fill="#c4a8e4"/>
+      <rect class="tick" style="animation-delay:.6s" x="138" y="347" width="46" height="4" rx="2" fill="#c4a8e4"/>
+      <text x="135" y="401" text-anchor="middle" fill="#f8eaff" font-size="14" font-weight="bold">WEBSITE</text>
+    </g>
+
+    <!— نقطة ضوء تمر على كل المسارات بالترتيب —>
+    <circle r="7" fill="#fff" filter="url(#glow)">
+      <animateMotion dur="9s" repeatCount="indefinite"
+        path="M205 125 C250 70 300 70 338 118 M510 118 C550 70 610 70 643 118 M765 150 C835 200 830 285 745 306 M645 352 C560 440 300 440 216 345 M135 284 V242"/>
+    </circle>
+  </svg>
+  </div>
+
+  <div class="stage-info">
     <h3 id="stageTitle">المستخدم</h3>
     <p id="stageDescription">يكتب عنوان الموقع في المتصفح.</p>
-</div>
+  </div>
 
-<button class="start-journey" id="startJourney" type="button">
+  <button class="start-journey" id="startJourney" type="button">
     ابدأ الرحلة ✨
-</button>
+  </button>
 </section>
 
  <section class="html-intro">
@@ -468,7 +613,6 @@
 
 </section>
 
-<script src="script.js"></script>
 <script src="script.js"></script>
 <script src="effects.js"></script>
 </body>
