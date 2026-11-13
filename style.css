@@ -117,14 +117,6 @@ button {
 
 }
 
-
-.web-image{
-    width: 300%;
-    max-width: 700px;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-}
 /* قسم رحلة الويب */
 .web-section {
     text-align: center;
@@ -139,43 +131,6 @@ button {
     flex-wrap: wrap;
     gap: 15px;
     margin: 35px auto;
-}
-
-/* أزرار المراحل */
-.stage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 18px;
-    min-width: 110px;
-    border: 2px solid #d8c8f5;
-    border-radius: 18px;
-    background: white;
-    color: #49316d;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* حجم الأيقونات */
-.stage-icon {
-    font-size: 30px;
-}
-
-/* المرحلة المختارة */
-.stage.active {
-    border-color: #8b5cf6;
-    box-shadow: 0 0 18px #b99aff;
-    background: #f4edff;
-    transform: translateY(-5px);
-}
-
-/* الأسهم */
-.arrow {
-    color: #8b5cf6;
-    font-size: 25px;
 }
 
 /* صندوق الشرح */
@@ -205,69 +160,6 @@ button {
 .start-journey:hover {
     background: #6336a5;
     transform: scale(1.05);
-}
-
-/* إطار الصورة */
-.web-diagram {
-    position: relative;
-    width: 100%;
-    max-width: 850px;
-    margin: 35px auto;
-}
-
-/* الصورة */
-.diagram-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 18px;
-}
-
-.hotspot {
-position: absolute;
-width: 19%;
-height: 20%;
-padding: 0;
-
-background: transparent;
-border: 3px solid transparent;
-border-radius: 25px;
-
-color: rgb(51, 11, 70);
-font-size: 22px;
-font-weight: 900;
-
-cursor: pointer;
-transform: translate(-50%, -50%);
-transition: box-shadow 0.3s, border-color 0.3s;
-
-box-sizing: border-box;
-}
-
-.hotspot[data-stage="0"] {
-    left: 18%;
-    top: 15%;
-}
-
-.hotspot[data-stage="1"] {
-    left: 50%;
-    top: 16%;
-}
-
-.hotspot[data-stage="2"] {
-    left: 82%;
-    top: 16%;
-}
-
-.hotspot[data-stage="3"] {
-    left: 82%;
-    top: 62%;
-}
-
-.hotspot[data-stage="4"] {
-    left: 18%;
-    top: 62%;
-   
 }
 
 /* الصورة المختارة */
@@ -1005,11 +897,6 @@ img, iframe, textarea { max-width: 100%; }
 
   .welcome-banner { min-height: 160px; }
   #welcome { font-size: 22px; }
-
-  .web-image { width: 100%; }
-  .stage-info, .html-challenge { padding: 15px; }
-  .lab-content { padding: 25px 12px; }
-  .side-card { min-height: auto; }
 }
 
 /* الشاشات الكبيرة */
@@ -1277,4 +1164,130 @@ padding: 30px 20px;
 .hotspot {
     color: transparent;
     text-shadow: none;
+}
+/* المخطط الجديد */
+.web-diagram {
+position: relative;
+width: 100%;
+max-width: 850px;
+margin: 35px auto;
+border-radius: 22px;
+overflow: hidden;
+isolation: isolate;
+
+}
+
+.web-art {
+display: block;
+width: 100%;
+height: auto;
+}
+
+/* حركة لطيفة للعناصر */
+.art-stage {
+transform-box: fill-box;
+transform-origin: center;
+transition: filter .4s ease;
+}
+
+
+/* حركة الضوء */
+.route-line {
+stroke-dasharray: 9 8;
+animation: routeFlow 2s linear infinite;
+}
+
+@keyframes routeFlow {
+to {
+stroke-dashoffset: -34;
+}
+}
+
+/* الشاشات الصغيرة */
+@media (max-width: 600px) {
+.web-diagram {
+border-radius: 14px;
+margin: 22px auto;
+}
+
+.web-diagram .hotspot {
+    border-radius: 12px;
+    border-width: 2px;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.route-line {
+animation: none;
+}
+}
+/* تحديد المرحلة بدون توهج */
+
+.web-diagram .hotspot.active {
+    border-color: #d8c8f5;
+    box-shadow: none !important;
+}
+
+/* حركة المجسم عند اختياره بدون توهج */
+.web-diagram .art-stage {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform .4s ease;
+}
+
+.web-diagram .art-stage.selected {
+    transform: translateY(-5px) scale(1.04);
+    filter: none !important;
+}
+/* ===== تفاعل مخطط رحلة الويب ===== */
+.web-art .art-stage{
+  cursor:pointer; outline:none;
+  transform-box:fill-box; transform-origin:center;
+  transition:transform .35s cubic-bezier(.3,1.5,.5,1), filter .3s;
+}
+.web-art .art-stage:hover{
+  transform:translateY(-8px) scale(1.07);
+  filter:drop-shadow(0 0 12px #e9b8ff);
+}
+.web-art .art-stage:focus-visible{ filter:drop-shadow(0 0 10px #fff); }
+.web-art .art-stage.selected{
+  transform:translateY(-6px) scale(1.05);
+  filter:drop-shadow(0 0 14px #f0abfc);
+  animation:artBob 3s ease-in-out infinite;
+}
+.web-art .art-stage.pop{ animation:artPop .5s ease; }
+@keyframes artBob{ 50%{ transform:translateY(-11px) scale(1.05); } }
+@keyframes artPop{
+  0%{ transform:scale(1); }
+  40%{ transform:translateY(-14px) scale(1.15); }
+  100%{ transform:translateY(-6px) scale(1.05); }
+}
+
+/* حركة التفاصيل داخل الأيقونة (عند المرور أو الاختيار) */
+.web-art .tick,.web-art .pulse{ transform-box:fill-box; }
+.web-art .tick{ transform-origin:left center; }
+.web-art .pulse{ transform-origin:center; }
+.web-art .art-stage:hover .tick,.web-art .art-stage.selected .tick{
+  animation:artType 1.2s ease-in-out infinite alternate;
+}
+.web-art .art-stage:hover .blink,.web-art .art-stage.selected .blink{
+  animation:artBlink .9s ease-in-out infinite;
+}
+.web-art .art-stage:hover .pulse,.web-art .art-stage.selected .pulse{
+  animation:artPulse 1s ease-in-out infinite;
+}
+@keyframes artType{ from{ transform:scaleX(.3); } to{ transform:scaleX(1); } }
+@keyframes artBlink{ 50%{ opacity:.2; } }
+@keyframes artPulse{ 50%{ transform:scale(1.12); } }
+
+/* الكوكب يطفو دائمًا بهدوء */
+.web-art .globe{ animation:globeFloat 6s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+@keyframes globeFloat{ 50%{ transform:translateY(-6px); } }
+
+/* السهم النشط */
+.web-art .route-line{ transition:stroke .3s, stroke-width .3s; }
+.web-art .route-line.active{ stroke:#fff; stroke-width:4.5; }
+
+@media (prefers-reduced-motion:reduce){
+  .web-art .art-stage,.web-art .tick,.web-art .blink,.web-art .pulse,.web-art .globe{ animation:none !important; }
 }
