@@ -14,20 +14,48 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="effects.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="effects.css">
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
    <section class="welcome-banner"> 
-   </section>
+  
 
-   <div class="visitor-box"> 
-    <h1 id="welcome">يا هلا والله بالرهيب</h1>
-    <input type="text" id="visitorName" placeholder="اكتب اسمك هنا">
-    <button onclick="welcomeVisitor()">رحّب بي</button>
-   </div>
+   <div class="welcome-overlay" id="welcomeOverlay">
+
+    <div class="welcome-card">
+
+        <div class="welcome-sparkle">✦ ✧ ✦</div>
+
+        <h1 id="welcome">يا هلا بك في مساحتي الاولى في عالم الويب ✨</h1>
+
+        <p>يسعدني وجودك هنا, خلّنا نرحب فيك </p>
+
+        <input
+
+            type="text"
+
+            id="visitorName"
+
+            placeholder="اكتب اسمك هنا (اختياري)"
+
+        >
+
+        <button onclick="welcomeVisitor()">
+
+         نووورت✨
+
+        </button>
+
+        <button class="skip-welcome" onclick="skipWelcome()">
+
+            تخطَّ وأكمل التصفح
+
+        </button>
+         </section>
     
 <section>
     <h2> أنا المطورة موضي البقمي</h2>
@@ -46,7 +74,7 @@
     <p>رحلة بسيطة توضّح كيف تنتقل طلباتك عبر الويب حتى تظهر لك الصفحة.</p>
 
     <div class="web-diagram"> 
-<img src="images/web2.jpg" alt="مخطط يوضح مراحل عمل الويب" class="diagram-image">
+<img src="images/Web2.jpg" alt="مخطط يوضح مراحل عمل الويب" class="diagram-image">
 
 <button class="stage hotspot active" data-stage="0" type="button">1</button>
 <button class="stage hotspot" data-stage="1" type="button">2</button>
@@ -58,7 +86,7 @@
 
 <div class="stage-info">
     <h3 id="stageTitle">المستخدم</h3>
-    <p id="stageDescription">يبدأ المستخدم بكتابة عنوان الموقع أو الضغط على رابط لزيارته.</p>
+    <p id="stageDescription">يكتب عنوان الموقع في المتصفح.</p>
 </div>
 
 <button class="start-journey" id="startJourney" type="button">
@@ -440,7 +468,7 @@
 
 </section>
 
-<script src="script.js"></script> 
+<script src="script.js"></script>
 <script src="script.js"></script>
 <script src="effects.js"></script>
 </body>
