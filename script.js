@@ -1,12 +1,27 @@
-function welcomeVisitor() { let name = document.querySelector("#visitorName").value.trim();
-let welcome = document.querySelector("#welcome");
-welcome.innerHTML = " يا هلا والله بالرهيب <span>" + name + "(:" ;
-welcome.style.fontFamily = /[\u0600-\u06FF]/.test(name)
+function welcomeVisitor() {
+const name = document.querySelector("#visitorName").value.trim();
+const welcome = document.querySelector("#welcome");
 
-        ? "'Tajawal', sans-serif"
+welcome.innerHTML = name
+    ? `حيّاك الله يا ${escapeHTML(name)} (: <br>نوّرت عالم الويب✨!`
+    : "حيّاك الله (: <br>نوّرت عالم الويب✨!";
 
-        : "'Poppins', sans-serif";
-}// معلومات مراحل عمل الويب
+setTimeout(() => {
+    document.querySelector("#welcomeOverlay").classList.add("hidden");
+}, 3000);
+}
+
+function escapeHTML(value) {
+const element = document.createElement("span");
+element.textContent = value;
+return element.innerHTML;
+}
+
+function skipWelcome() {
+document.querySelector("#welcomeOverlay").classList.add("hidden");
+}
+
+// معلومات مراحل عمل الويب
 const stages = [
     {
         title: "المستخدم",
@@ -37,7 +52,8 @@ buttons.forEach((button, i) => {
     button.classList.toggle("active", i === index);
 });
 
-document.querySelector("#stageTitle").textContent = stages[index].title;
+document.querySelector("#stageTitle").textContent = `${index + 1}. ${stages[index].title}`;
+
 document.querySelector("#stageDescription").textContent = stages[index].description;
 }
 
