@@ -3,7 +3,7 @@ const name = document.querySelector("#visitorName").value.trim();
 const welcome = document.querySelector("#welcome");
 
 welcome.innerHTML = name
-    ? `حيّاك الله يا ${escapeHTML(name)} (: <br>نوّرت عالم الويب✨!`
+    ? `حيّاك الله يا ${escapeHTML(name)} (: <br>في عالم الويب🚀!`
     : "حيّاك الله (: <br>نوّرت عالم الويب✨!";
 
 setTimeout(() => {
