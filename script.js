@@ -51,6 +51,12 @@ const buttons = document.querySelectorAll(".stage");
 buttons.forEach((button, i) => {
     button.classList.toggle("active", i === index);
 });
+document.querySelectorAll(".art-stage").forEach((element) => {
+    element.classList.toggle(
+        "selected",
+        Number(element.dataset.artStage) === index
+    );
+});
 
 document.querySelector("#stageTitle").textContent = `${index + 1}. ${stages[index].title}`;
 
@@ -154,7 +160,7 @@ if (labButton) {
 
       result: "JavaScript تمنح الموقع الحياة والتفاعل.",
 
-      button: "أعيد التجربة ↩",
+      button: "أعد التجربة ↩",
 
       active: "js-tag"
 
@@ -287,3 +293,38 @@ if (orderButton) {
   });
 
 }
+/* ===== تفاعل مخطط رحلة الويب: يُحمَّل بعد script.js ===== */
+(function () {
+  var stages = document.querySelectorAll('.web-art .art-stage');
+  var routes = document.querySelectorAll('.web-art .route-line');
+
+  function markRoute(i) {
+    routes.forEach(function (r) {
+      r.classList.toggle('active', Number(r.dataset.route) === i);
+    });
+  }
+
+  // نربط showStage الأصلية: زر "ابدأ الرحلة" سيحرّك الأسهم أيضًا
+  var original = window.showStage;
+  window.showStage = function (i) {
+    if (typeof original === 'function') original(i);
+    markRoute(i);
+  };
+
+  stages.forEach(function (g) {
+    var i = Number(g.dataset.artStage);
+    function activate() {
+      window.showStage(i);
+      g.classList.remove('pop');
+      void g.getBoundingClientRect();
+      g.classList.add('pop');
+    }
+    g.addEventListener('click', activate);
+    g.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+    });
+    g.addEventListener('animationend', function (e) {
+      if (e.animationName === 'artPop') g.classList.remove('pop');
+    });
+  });
+})();
