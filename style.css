@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-    color: #1b0733;
+    color: #1e0524;
     font-size: 35px;
     text-align: right;
     margin-top: 30px;
@@ -27,7 +27,7 @@ h2 {
 }
 
 p {
-    color: #2c2b2b;
+    color: #521270;
     font-size: 25px;
     line-height: 1.8;
    
@@ -47,7 +47,7 @@ input {
 
 button {
     padding: 8px 16px;
-    background-color: #0d041a;
+    background-color: #1b0736;
     color: white;
     border: none;
     border-radius: 8px;
@@ -58,6 +58,11 @@ button {
   
 }
 
+
+.glow-emoji {
+    animation: glowing 2s infinite;
+    display: inline-block;
+}
 .welcome-banner {
 
     background-image: url("images/66.jpg");
@@ -111,21 +116,7 @@ button {
     margin-top: 20px;
 
 }
-@keyframes glowing {
-    0% {
-        filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.4));
-    }
-    50% {
-        filter: drop-shadow(0 0 12px rgba(22, 12, 34, 0.9));
-    }
-    100% {
-        filter: drop-shadow(0 0 2px rgba(68, 39, 104, 0.4));
-    }
-}
-.glow-emoji {
-    animation: glowing 2s infinite;
-    display: inline-block;
-}
+
 
 .web-image{
     width: 300%;
@@ -1025,6 +1016,27 @@ img, iframe, textarea { max-width: 100%; }
 @media (min-width: 1024px) {
   body { max-width: 1100px; margin: 0 auto; }
 }
+/* ============ effects.css : طبقة جمالية فوق التصميم الحالي ============ */
+html { scroll-behavior: smooth; }
+::selection { background: #d9b8ff; color: #2a0a4a; }
+
+/* ---- خلفية متحركة: ضباب وتدرجات ---- */
+body::before {
+  content: ""; position: fixed; inset: -20%; z-index: -4; pointer-events: none;
+  background:
+    radial-gradient(40% 35% at 20% 25%, rgba(192,132,252,.30), transparent 70%),
+    radial-gradient(35% 35% at 80% 20%, rgba(244,114,182,.20), transparent 70%),
+    radial-gradient(45% 40% at 70% 80%, rgba(129,140,248,.22), transparent 70%),
+    radial-gradient(35% 30% at 15% 85%, rgba(251,207,232,.35), transparent 70%);
+  animation: fxDrift 30s ease-in-out infinite alternate; will-change: transform;
+}
+@keyframes fxDrift {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(3%,-2%,0) rotate(2deg) scale(1.05); }
+  100% { transform: translate3d(-3%,3%,0) rotate(-2deg) scale(1.1); }
+}
+
+/* ---- تموجات بنفسجية ووردية ---- */
 html::before, html::after {
   content: ""; position: fixed; left: 0; bottom: 0; width: 200%; height: 140px;
   z-index: -3; pointer-events: none; background-repeat: repeat-x;
@@ -1160,4 +1172,109 @@ button { transition: transform .25s ease, box-shadow .25s ease, filter .25s ease
   .side-icon, .ai-icon, .journey-arrow span, .hotspot.active { animation: none !important; }
   .fx-spark, .fx-cursor { display: none; }
   .fx-ready .fx-reveal { opacity: 1; transform: none; transition: none; }
+}
+/* نافذة الترحيب */
+.welcome-overlay {
+position: fixed;
+inset: 0;
+z-index: 99999;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+background: rgba(12, 6, 19, 0.48);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.welcome-overlay.hidden {
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
+}
+
+.welcome-card {
+width: min(100%, 440px);
+padding: 38px 25px;
+text-align: center;
+background: rgba(16, 5, 29, 0.94);
+border: 1px solid rgba(255,255,255,0.8);
+border-radius: 30px;
+box-shadow: 0 15px 50px rgba(130, 83, 190, 0.18);
+animation: welcomeAppear 0.8s ease both;
+}
+
+.welcome-sparkle {
+color: #d4d4d4;
+font-size: 25px;
+margin-bottom: 15px;
+}
+
+.welcome-card h1 {
+color: #ffffff;
+font-size: 25px;
+line-height: 1.8;
+}
+
+.welcome-card p {
+color: #d8d4db;
+margin: 15px 0 22px;
+}
+
+.welcome-card input {
+width: 100%;
+padding: 15px;
+border: 1px solid #D9CBE9;
+border-radius: 14px;
+background: white;
+text-align: right;
+font-family: inherit;
+font-size: 16px;
+outline: none;
+}
+
+.welcome-card button {
+width: 100%;
+margin-top: 18px;
+padding: 14px;
+border: none;
+border-radius: 30px;
+background: #8050B9;
+color: white;
+font-family: inherit;
+font-size: 17px;
+cursor: pointer;
+}
+
+.welcome-card .skip-welcome {
+margin-top: 10px;
+background: transparent;
+color: #f9f5fd;
+font-size: 14px;
+}
+
+@keyframes welcomeAppear {
+from {
+opacity: 0;
+transform: translateY(20px) scale(0.96);
+}
+to {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+}
+
+@media (max-width: 600px) {
+.welcome-card {
+padding: 30px 20px;
+}
+
+.welcome-card h1 {
+    font-size: 22px;
+}
+}
+.hotspot {
+    color: transparent;
+    text-shadow: none;
 }
